@@ -6,9 +6,16 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 def get_files_in_current_directory():
+    # This is a docstring. In VS Code and other editors, it will
+    # show up when you hover over the function name and give more context.
+    """Returns a list of filenames in the current directory."""
+    # ^ Though I think this will also return the directories in 
+    # the directory, but this can be fixed later.
     path = '.'
     files = os.listdir(path)
     return files
+
+files = get_files_in_current_directory()
 
 loadmess = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
 fromaddr = "your email"
