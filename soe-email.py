@@ -13,8 +13,8 @@ def get_files_in_current_directory():
 
 files = get_files_in_current_directory()
 
-# "email" seems like something that could be make into a class.
-# I think this will improve readability and reusability.
+class Email:
+    pass
 
 loadmess = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
 fromaddr = "your email"
