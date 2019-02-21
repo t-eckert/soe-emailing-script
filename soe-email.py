@@ -15,9 +15,21 @@ files = get_files_in_current_directory()
 
 class Email:
     default_message = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
-    # Essentially, this is a "static" class. 
-    # I renamed `loadmess` to `default_message` because I had trouble understanding the intent 
-    # of `loadmess` until I read through the code. I hope you don't mind.
+    
+    def __init__(from_address, to_address):
+        # Now this is a non-static class. It has a constructor. 
+        # In Java or C# or other OO langs, this is commonly written as
+        #       class Email
+        #       {
+        #           Email(string fromAddress, toAddress)
+        #           {
+        #               
+        #           }
+        #       }
+        #
+        # Same thing as what we've done here.
+        pass
+
     pass
 
 
