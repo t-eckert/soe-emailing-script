@@ -17,15 +17,13 @@ class Email:
     default_message = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
     
     def __init__(self, from_address, to_address):
-        # Now we have assigned the constructor values to fields
-        # on the class. Note that we need the `self` value to 
-        # truly make this a non-static class which I forgot before.
         self.from_address = from_address
         self.to_address = to_address
         pass
 
     pass
 
+# We'll come back to this class in a bit.
 
 fromaddr = "your email"
 #region, my pasword
