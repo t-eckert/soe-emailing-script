@@ -23,7 +23,20 @@ class Email:
 
     pass
 
-# We'll come back to this class in a bit.
+
+# Let's write some functions to set values at runtime, 
+# including the email and password.
+
+# We want to avoid keeping either of these in git, 
+# the password should optimally not be in plaintext,
+# but we can look at authentication in various contexts
+# at some other time. 
+
+# For now, we will ask the user at runtime for these values
+# by making use of functions we will write. Later, we will
+# add functionality to have the code read these values from
+# a config file that won't be put in git. (For this we'll
+# use a `.gitignore` file - but one step at a time.)
 
 fromaddr = "your email"
 #region, my pasword
