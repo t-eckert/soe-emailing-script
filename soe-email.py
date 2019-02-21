@@ -14,9 +14,13 @@ def get_files_in_current_directory():
 files = get_files_in_current_directory()
 
 class Email:
+    default_message = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
+    # Essentially, this is a "static" class. 
+    # I renamed `loadmess` to `default_message` because I had trouble understanding the intent 
+    # of `loadmess` until I read through the code. I hope you don't mind.
     pass
 
-loadmess = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
+
 fromaddr = "your email"
 #region, my pasword
 password = "your email password goes here"
