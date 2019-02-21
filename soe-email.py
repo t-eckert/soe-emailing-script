@@ -1,6 +1,3 @@
-# From now on, I'll run the code with Python 3.7 so we won't need
-# to import the 'future' print function as it will be baked in.
-
 import os
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
@@ -12,8 +9,8 @@ path = '.'                                  #current directory
  
 files = os.listdir(path)                    #gets all files in current directory
 
-[x.encode('utf-8') for x in files]          #encoding the files
-
+# You shouldn't need to fix the encoding manually in Python 3. 
+# I might be wrong. If so, we'll put it back later.
 
 loadmess = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
 fromaddr = "your email"
