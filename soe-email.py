@@ -1,4 +1,16 @@
 from __future__ import print_function
+
+# ^ The first thing I noticed is that you are importing the print func
+# from Python 3, which I assume means you are running this with Python 2.
+# I would suggest running this with Python 3 as Python 2 support will end
+# next year and there is nothing I can see in the code so far that would 
+# require Python 2. 
+
+# For running with Python 3, I would download Python 3.7 from here: 
+# https://www.python.org/downloads/
+
+# If you need help setting it up, just let me know!
+
 import os
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
