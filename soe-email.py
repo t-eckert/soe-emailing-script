@@ -5,18 +5,10 @@ from email.MIMEText import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
-# One goal I aim for is having "self-documenting" code. 
-# This doesn't mean you shouldn't use comments, but that
-# code should tell as story as you read it. Comments should
-# act as footnotes in the story.
-
-# We can make these next lines more self-documenting by wrapping
-# them in a function.
-
-path = '.'                                  #current directory
- 
-files = os.listdir(path)                    #gets all files in current directory
-
+def get_files_in_current_directory():
+    path = '.'
+    files = os.listdir(path)
+    return files
 
 loadmess = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
 fromaddr = "your email"
