@@ -16,18 +16,12 @@ files = get_files_in_current_directory()
 class Email:
     default_message = "This is an important message. Please take a look at the file. If there are any errors, please reply back."
     
-    def __init__(from_address, to_address):
-        # Now this is a non-static class. It has a constructor. 
-        # In Java or C# or other OO langs, this is commonly written as
-        #       class Email
-        #       {
-        #           Email(string fromAddress, toAddress)
-        #           {
-        #               
-        #           }
-        #       }
-        #
-        # Same thing as what we've done here.
+    def __init__(self, from_address, to_address):
+        # Now we have assigned the constructor values to fields
+        # on the class. Note that we need the `self` value to 
+        # truly make this a non-static class which I forgot before.
+        self.from_address = from_address
+        self.to_address = to_address
         pass
 
     pass
