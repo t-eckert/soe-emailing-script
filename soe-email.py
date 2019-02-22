@@ -23,33 +23,25 @@ class Email:
         self.msg = MIMEMultipart()
         self.msg['From'] = from_address
         self.msg['To'] = to_address
-        pass
 
     def set_subject(self, file_data):
         self.msg['Subject'] = "Load sheet " + file_date
-        pass
 
     def set_default_message(self):
         html = f"<html><head></head><body><p>{self.default_message}</p></body></html>"
         self.msg.attach(MIMEText(html, 'html'))
 
     def attach_file(self, path):
-        print("attaching file")
         part = MIMEBase('application', "octet-stream") 
         with open(path, 'rb') as file:
             part.set_payload(file.read())
         encoders.encode_base64(part)
-        # We can split logic across lines inside of parentheses:
         part.add_header(
             'Content-Disposition', 'attachment; filename="{}"'.format(
                 os.path.basename(path)
             )
         )
         self.msg.attach(part)
-        print("attached file")
-
-
-    pass
 
 def set_from_email():
     return input("Your Email: ")
