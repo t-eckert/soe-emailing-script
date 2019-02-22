@@ -54,6 +54,7 @@ for path in files:
     msg['To'] = to_address
     msg['Subject'] = "Load sheet " + file_date
 
+    # Now we can use our Email object here
     html = """\
     <html>
         <head></head>
