@@ -55,17 +55,9 @@ for path in files:
     msg['Subject'] = "Load sheet " + file_date
 
     # Now we can use our Email object here
-    html = """\
-    <html>
-        <head></head>
-        <body>
-            <p>
-                Hello
-                """ + loadmess + """ 
-            </p>
-        </body>
-    </html>
-    """
+    email = Email(from_address, to_address)
+
+    # Then we can move the email creation logic into the class
 
     msg.attach(MIMEText(html, 'html'))
 
