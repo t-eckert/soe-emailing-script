@@ -30,9 +30,22 @@ class Email:
         pass
 
     def set_default_message(self):
-        # and to make things even cleaner, we can use f-strings
         html = f"<html><head></head><body><p>{self.default_message}</p></body></html>"
         self.msg.attach(MIMEText(html, 'html'))
+
+    def attach_file(self, path):
+        print("attaching file")
+        #attach file start
+        part = MIMEBase('application', "octet-stream") 
+        with open(path, 'rb') as file:
+            part.set_payload(file.read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', 'attachment; filename="{}"'.format(os.path.basename(path)))
+        self.msg.attach(part)
+        #attach file end
+        print("attached file")
+
+        # this should work. Now let's clean it up
 
     pass
 
@@ -68,16 +81,7 @@ for path in files:
 
     # Now we add file-attachment as a feature of the Email class
 
-    print("attaching file")
-    #attach file start
-    part = MIMEBase('application', "octet-stream") 
-    with open(path, 'rb') as file:
-        part.set_payload(file.read())
-    encoders.encode_base64(part)
-    part.add_header('Content-Disposition', 'attachment; filename="{}"'.format(os.path.basename(path)))
-    msg.attach(part)
-    #attach file end
-    print("attached file")
+    
 
     print("sending email to " + str(toaddr))
     text = msg.as_string()
