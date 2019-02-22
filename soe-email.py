@@ -81,12 +81,10 @@ for path in files:
     server.sendmail(from_address, email.to_address, text)
     print("sent email to " + to_address)
 
-    # We can include the debug mode when we write tests.
 
-try:
-    dhellmann_result = server.verify('dhellmann')
-    notthere_result = server.verify('notthere')
-finally:
-    server.quit()
-    print("quit server?")
+# You are verifying that these are email addresses?
+# We can look at including this in tests later.
+
+server.quit()
+
     
