@@ -19,7 +19,21 @@ class Email:
     def __init__(self, from_address, to_address):
         self.from_address = from_address
         self.to_address = to_address
+
+        self.msg = MIMEMultipart()
+        self.msg['From'] = from_address
+        self.msg['To'] = to_address
+
+
         pass
+
+    def set_subject(self, file_data):
+        self.msg['Subject'] = "Load sheet " + file_date
+        pass
+
+    def set_default_message(self):
+        html = """<html><head></head><body><p>""" + loadmess + """</p></body></html>"""
+        self.msg.attach(MIMEText(html, 'html'))
 
     pass
 
@@ -49,17 +63,11 @@ def get_email_metadata_from_path(path):
 
 for path in files:
     to_address, file_date = get_email_metadata_from_path(path)
-    msg = MIMEMultipart()
-    msg['From'] = from_address
-    msg['To'] = to_address
-    msg['Subject'] = "Load sheet " + file_date
-
-    # Now we can use our Email object here
     email = Email(from_address, to_address)
+    email.set_subject(file_date)
+    email.set_default_message()
 
-    # Then we can move the email creation logic into the class
 
-    msg.attach(MIMEText(html, 'html'))
 
     print("attaching file")
     #attach file start
