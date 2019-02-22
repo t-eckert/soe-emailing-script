@@ -29,18 +29,13 @@ def set_from_email():
 def set_password():
     return input("Password: ")
 
-
-#headless browser
-#python - beautiful soup
-#automate the boring stuff with python - free book
-
 server = smtplib.SMTP('smtp.outlook.com', 587) #10 used to be 587, idk what the 587 is for
 server.ehlo()
 server.starttls()
 server.ehlo()
 server.login(fromaddr, password)
 
-for path in files:                          #for each file, format of name should be localpart_filedate_loadsheet
+for path in files:           # This should be in the README -> #for each file, format of name should be localpart_filedate_loadsheet
     localp = path.split('_')[0]             #local-part
     filedate = path.split('_')[1]           #file date
     toaddr = localp + "@spu.edu"
