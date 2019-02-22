@@ -29,23 +29,30 @@ def set_from_email():
 def set_password():
     return input("Password: ")
 
+from_address = set_from_email()
+password = set_password()
+
 server = smtplib.SMTP('smtp.outlook.com', 587) #10 used to be 587, idk what the 587 is for
 server.ehlo()
 server.starttls()
 server.ehlo()
-server.login(fromaddr, password)
+server.login(from_address, password)
+
+def get_email_metadata_from_path(path):
+    split_path = path.split('_')
+    local_part = split_path[0]
+    file_date = split_path[1]
+    to_address = local_part + "@spu.edu"
+    print("attempting to send email to " + to_address) # Python will assume this is a str
+    return to_address, file_date
+    # This will need more cleaning up, but it works for now. 
 
 for path in files:
-    # V
-    localp = path.split('_')[0]             #local-part
-    filedate = path.split('_')[1]           #file date
-    toaddr = localp + "@spu.edu"
-    print("attempting to send email to " + str(toaddr))
-    # ^ Let's put all of this into a formatting function
+    to_address, file_date = get_email_metadata_from_path(path)
     msg = MIMEMultipart()
-    msg['From'] = fromaddr
-    msg['To'] = toaddr
-    msg['Subject'] = "Load sheet " + filedate
+    msg['From'] = from_address
+    msg['To'] = to_address
+    msg['Subject'] = "Load sheet " + file_date
 
     html = """\
     <html>
