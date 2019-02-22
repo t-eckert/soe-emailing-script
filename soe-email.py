@@ -35,17 +35,19 @@ class Email:
 
     def attach_file(self, path):
         print("attaching file")
-        #attach file start
         part = MIMEBase('application', "octet-stream") 
         with open(path, 'rb') as file:
             part.set_payload(file.read())
         encoders.encode_base64(part)
-        part.add_header('Content-Disposition', 'attachment; filename="{}"'.format(os.path.basename(path)))
+        # We can split logic across lines inside of parentheses:
+        part.add_header(
+            'Content-Disposition', 'attachment; filename="{}"'.format(
+                os.path.basename(path)
+            )
+        )
         self.msg.attach(part)
-        #attach file end
         print("attached file")
 
-        # this should work. Now let's clean it up
 
     pass
 
