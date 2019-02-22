@@ -66,7 +66,7 @@ for path in files:
     email.set_subject(file_date)
     email.set_default_message()
 
-
+    # Now we add file-attachment as a feature of the Email class
 
     print("attaching file")
     #attach file start
