@@ -43,6 +43,9 @@ class Email:
         )
         self.msg.attach(part)
 
+    def get_as_string(self):
+        return self.msg.to_string()
+
 def set_from_email():
     return input("Your Email: ")
 
@@ -74,11 +77,9 @@ for path in files:
     email.set_default_message()
     email.attach_file(path)
     print("sending email to " + to_address)
-
-    # let's move this into the Email class.
-    text = msg.as_string()
-    server.sendmail(fromaddr, toaddr, text)
-    print("sent email to " + str(toaddr))
+    text = email.get_as_string()
+    server.sendmail(from_address, email.to_address, text)
+    print("sent email to " + to_address)
 
     #server = smtplib.SMTP('mail') #idk what this is for
     server.set_debuglevel(True)  #show communication with the server, idk what this is for
