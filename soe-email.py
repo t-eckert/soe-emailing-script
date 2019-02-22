@@ -23,20 +23,12 @@ class Email:
 
     pass
 
-
-# Let's write some functions to set values at runtime, 
-# including the email and password.
-
 def set_from_email():
     return input("Your Email: ")
 
 def set_password():
     return input("Password: ")
 
-fromaddr = "your email"
-#region, my pasword
-password = "your email password goes here"
-#endregion
 
 #headless browser
 #python - beautiful soup
