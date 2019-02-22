@@ -23,8 +23,6 @@ class Email:
         self.msg = MIMEMultipart()
         self.msg['From'] = from_address
         self.msg['To'] = to_address
-
-
         pass
 
     def set_subject(self, file_data):
@@ -32,7 +30,8 @@ class Email:
         pass
 
     def set_default_message(self):
-        html = """<html><head></head><body><p>""" + loadmess + """</p></body></html>"""
+        # and to make things even cleaner, we can use f-strings
+        html = f"<html><head></head><body><p>{self.default_message}</p></body></html>"
         self.msg.attach(MIMEText(html, 'html'))
 
     pass
