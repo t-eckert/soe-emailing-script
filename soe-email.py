@@ -35,11 +35,13 @@ server.starttls()
 server.ehlo()
 server.login(fromaddr, password)
 
-for path in files:           # This should be in the README -> #for each file, format of name should be localpart_filedate_loadsheet
+for path in files:
+    # V
     localp = path.split('_')[0]             #local-part
     filedate = path.split('_')[1]           #file date
     toaddr = localp + "@spu.edu"
     print("attempting to send email to " + str(toaddr))
+    # ^ Let's put all of this into a formatting function
     msg = MIMEMultipart()
     msg['From'] = fromaddr
     msg['To'] = toaddr
