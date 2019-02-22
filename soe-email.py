@@ -72,12 +72,10 @@ for path in files:
     email = Email(from_address, to_address)
     email.set_subject(file_date)
     email.set_default_message()
+    email.attach_file(path)
+    print("sending email to " + to_address)
 
-    # Now we add file-attachment as a feature of the Email class
-
-    
-
-    print("sending email to " + str(toaddr))
+    # let's move this into the Email class.
     text = msg.as_string()
     server.sendmail(fromaddr, toaddr, text)
     print("sent email to " + str(toaddr))
