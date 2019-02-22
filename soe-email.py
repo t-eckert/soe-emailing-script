@@ -81,11 +81,7 @@ for path in files:
     server.sendmail(from_address, email.to_address, text)
     print("sent email to " + to_address)
 
-    # It is common practice (from UNIX days) to have success states be silent and
-    # fail states be loud. This library follows that convention. If nothing is wrong,
-    # it won't raise any alarm bells. If you want to see the communication, you need to
-    # turn on debug mode:
-    server.set_debuglevel(True)  #show communication with the server, idk what this is for
+    # We can include the debug mode when we write tests.
 
 try:
     dhellmann_result = server.verify('dhellmann')
