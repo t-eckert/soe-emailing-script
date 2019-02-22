@@ -27,16 +27,11 @@ class Email:
 # Let's write some functions to set values at runtime, 
 # including the email and password.
 
-# We want to avoid keeping either of these in git, 
-# the password should optimally not be in plaintext,
-# but we can look at authentication in various contexts
-# at some other time. 
+def set_from_email():
+    return input("Your Email: ")
 
-# For now, we will ask the user at runtime for these values
-# by making use of functions we will write. Later, we will
-# add functionality to have the code read these values from
-# a config file that won't be put in git. (For this we'll
-# use a `.gitignore` file - but one step at a time.)
+def set_password():
+    return input("Password: ")
 
 fromaddr = "your email"
 #region, my pasword
